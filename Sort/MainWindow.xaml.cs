@@ -24,5 +24,10 @@ namespace Sort
         {
             InitializeComponent();
         }
+
+        private void FillDatabase_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
