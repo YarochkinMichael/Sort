@@ -1,6 +1,6 @@
 ﻿namespace Sort.Model
 {
-    struct Result
+    public struct Result
     {
         string message;
         bool status;

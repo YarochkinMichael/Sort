@@ -8,15 +8,12 @@ using System.Threading.Tasks;
 
 namespace Sort.Repository
 {
-    interface ITable
+    public class SQLTableContent : DbContext
     {
-        Result? Add(Number number);
+        public SQLTableContent(string tableName) : base(tableName)
+        {
+        }
 
-        int GetMax();
-        int GetMin();
-
-        List<int> FindAllIdByNumber(int number);
-
-        Number FindById(int id);
+        public DbSet<Number> Numbers { get; set; }
     }
 }

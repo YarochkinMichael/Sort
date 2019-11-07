@@ -12,9 +12,14 @@ namespace Sort.Service
     {
         ITable table;
 
+        public Numbers(ITable table)
+        {
+            this.table = table;
+        }
+
         public Result? Add(Number number)
         {
-            throw new NotImplementedException();
+            return table.Add(number);
         }
 
         public Result? FillFromSource(INumbers randomNumbers, List<int> orderedList)
@@ -29,7 +34,7 @@ namespace Sort.Service
         {
             for (int i = 0; i != count; i++)
             {
-                Result? result = table.Add(new Random().Next(maxValue, minValue));
+                Result? result = table.Add(new Number(new Random().Next(maxValue, minValue)));
 
                 if (result.HasValue == false)
                     return result;
@@ -40,22 +45,22 @@ namespace Sort.Service
 
         public List<int> FindAllIdByNumber(int number)
         {
-            throw new NotImplementedException();
+            return table.FindAllIdByNumber(number);
         }
 
         public int GetMaxValue()
         {
-            throw new NotImplementedException();
+            return table.GetMax();
         }
 
         public int GetMinValue()
         {
-            throw new NotImplementedException();
+            return table.GetMin();
         }
 
         public Number FindById(int id)
         {
-            throw new NotImplementedException();
+            return table.FindById(id);
         }
     }
 }
