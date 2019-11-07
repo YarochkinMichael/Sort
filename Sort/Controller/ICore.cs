@@ -8,9 +8,9 @@ using Sort.Model;
 
 namespace Sort.Controller
 {
-    interface ICore
+    public interface ICore
     {
-        Result? FillInitialTable(int count);
+        Result? FillInitialTable();
 
         event EventHandler DataFilled;
 

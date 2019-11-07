@@ -16,8 +16,10 @@ namespace Sort.Controller
         private INumbers randomNumbers;
         private INumbers sortedNumbers;
 
+        //should be taken from settings
         private int maxValue=1;
         private int minValue = 10;
+        private int count = 1000;
 
         public Core(ISorting sorting, INumbers randomNumbers, INumbers sortedNumbers)
         {
@@ -31,7 +33,7 @@ namespace Sort.Controller
         public event EventHandler DataSorted;
         public event EventHandler ProgressReport;
 
-        public Result? FillInitialTable(int count)
+        public Result? FillInitialTable()
         {
             try {
                 return randomNumbers.FillWithRandomNumbers(count, maxValue, minValue);

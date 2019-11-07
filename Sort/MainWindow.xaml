@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button x:Name="FillDatabase" Content="Fill database" HorizontalAlignment="Left" Margin="128,72,0,0" VerticalAlignment="Top" Width="108" Click="FillDatabase_Click"/>
-        <Button x:Name="SortNumbers" Content="Sort numbers" HorizontalAlignment="Left" Margin="128,140,0,0" VerticalAlignment="Top" Width="108"/>
+        <Button x:Name="SortNumbers" Content="Sort numbers" HorizontalAlignment="Left" Margin="128,140,0,0" VerticalAlignment="Top" Width="108" Click="SortNumbers_Click"/>
         <Label x:Name="Status" Content="Label" HorizontalAlignment="Left" Margin="348,76,0,0" VerticalAlignment="Top"/>
 
     </Grid>
