@@ -24,17 +24,21 @@ namespace Sort.Service
 
         public Result? FillFromSource(INumbers randomNumbers, List<int> orderedList)
         {
+            table.Clear();
+
             for (int i = 0; i != orderedList.Count; i++)
-                Add(randomNumbers.FindById(orderedList[i]));
+                Add(new Number(randomNumbers.FindById(orderedList[i])));
 
                 throw new NotImplementedException();
         }
 
         public Result? FillWithRandomNumbers(int count, int maxValue, int minValue)
         {
+            table.Clear();
+
             for (int i = 0; i != count; i++)
             {
-                Result? result = table.Add(new Number(new Random().Next(maxValue, minValue)));
+                Result? result = table.Add(new Number(new Random().Next(maxValue, minValue + 1)));
 
                 if (result.HasValue == false)
                     return result;

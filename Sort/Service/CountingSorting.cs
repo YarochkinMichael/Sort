@@ -16,7 +16,7 @@ namespace Sort.Service
             int minValue = numbers.GetMinValue();
             int maxValue = numbers.GetMaxValue();
 
-            for (int i = minValue; i != maxValue; i++)
+            for (int i = minValue; i != maxValue + 1; i++)
                 list.AddRange(numbers.FindAllIdByNumber(i));
 
             return list;

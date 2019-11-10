@@ -19,8 +19,10 @@ namespace Sort
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            ITable originalTable = new SQLTable("original");
-            ITable sortedTable = new SQLTable("sorted");
+            SQLRandomTableContent randomContent = new SQLRandomTableContent("Random", "random");
+            ITable originalTable = new SQLTable(randomContent, randomContent.Numbers);
+            SQLSortedTableContent sortedContent = new SQLSortedTableContent("Sorted", "sorted");
+            ITable sortedTable = new SQLTable(sortedContent, sortedContent.Numbers);
             INumbers originalNnumbers = new Numbers(originalTable);
             INumbers sortedNnumbers = new Numbers(sortedTable);
             ISorting sorting = new CountingSorting();

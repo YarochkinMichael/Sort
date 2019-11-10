@@ -9,12 +9,20 @@ namespace Sort.Model
 {
     public class Number
     {
+        public Number()
+        {
+        }
+
         public Number(int v)
         {
             Value = v;
         }
 
-        [Key]
+        public Number(Number original)
+        {
+            Value = original.Value;
+        }
+
         public int Id { get; set; }
         public int Value { get; set; }
     }
