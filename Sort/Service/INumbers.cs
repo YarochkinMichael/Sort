@@ -12,7 +12,7 @@ namespace Sort.Service
         Result? Add(Number number);
 
         Result? FillWithRandomNumbers(int count, int maxValue, int minValue);
-        Result? FillFromSource(INumbers randomNumbers, List<int> orderedList);
+        Result? FillFromSource(INumbers numbers, List<int> orderedList);
 
         int GetMaxValue();
         int GetMinValue();

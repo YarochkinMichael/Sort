@@ -65,10 +65,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\Number.cs" />
+    <Compile Include="Model\Number .cs" />
     <Compile Include="Repository\ITable.cs" />
     <Compile Include="Repository\SQLTable.cs" />
-    <Compile Include="Repository\SQLTableContent.cs" />
+    <Compile Include="Repository\SQLRandomTableContent.cs" />
+    <Compile Include="Repository\SQLSortedTableContent.cs" />
     <Compile Include="Service\CountingSorting.cs" />
     <Compile Include="Service\INumbers.cs" />
     <Compile Include="Service\ISorting.cs" />

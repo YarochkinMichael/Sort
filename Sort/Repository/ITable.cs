@@ -10,6 +10,8 @@ namespace Sort.Repository
 {
     interface ITable
     {
+        void Clear();
+
         Result? Add(Number number);
 
         int GetMax();

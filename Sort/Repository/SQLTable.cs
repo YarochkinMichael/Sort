@@ -11,47 +11,58 @@ namespace Sort.Repository
 {
     class SQLTable : ITable
     {
-        SQLTableContent content;
+        DbContext context;
+        DbSet<Number> table;
 
-        public SQLTable(string tableName)
+        public SQLTable(DbContext context, DbSet<Number> table)
         {
-            content = new SQLTableContent(tableName);
+            this.context = context;
+            this.table = table;
         }
 
         public Result? Add(Number number)
         {
             try
             {
-                content.Numbers.Add(number);
+                table.Add(number);
+
+                context.SaveChanges();
 
                 return Result.OK("New value " + number + " added");
             }
             catch (Exception e)
-            { return Result.Failed("Failed to add number " + number); }
+            { return Result.Failed("Failed to add number " + number + " : " + e.Message); }
+        }
+
+        public void Clear()
+        {
+            var all = from c in table select c;
+            table.RemoveRange(all);
+            context.SaveChanges();
         }
 
         public List<int> FindAllIdByNumber(int number)
         {
-            return content.Numbers
+            return table
                 .Where(n => n.Value == number)
-                .Select(n => n.Value)
+                .Select(i=> i.Id)
                 .Distinct()
                 .ToList();
         }
 
         public Number FindById(int id)
         {
-            return content.Numbers.Find(id);
+            return table.Find(id);
         }
 
         public int GetMax()
         {
-            return content.Numbers.Max(n => n.Value);
+            return table.Max(n => n.Value);
         }
 
         public int GetMin()
         {
-            return content.Numbers.Min(n => n.Value);
+            return table.Min(n => n.Value);
         }
     }
 }
